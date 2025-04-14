@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@api/*": ["apps/api/src/*"],
+      "@web/*": ["apps/web/src/*"],
+      "@packages/*": ["packages/*"]
     }
   },
-  "include": ["src"]
+  "exclude": ["node_modules"]
 }
