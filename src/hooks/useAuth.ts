@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { login, register, refreshToken } from '../api/auth';
+import { login, register, refreshToken, logout } from '../api/auth';
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -43,9 +43,14 @@ const useAuth = () => {
     }
   };
 
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('token');
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setUser(null);
+      localStorage.removeItem('token');
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
   };
 
   return {
