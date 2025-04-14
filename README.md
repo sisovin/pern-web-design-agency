@@ -1,2 +1,1 @@
-# pern-web-design-agency
-A repository for a PERN web design agency project
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
