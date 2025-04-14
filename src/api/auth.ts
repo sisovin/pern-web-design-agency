@@ -26,3 +26,12 @@ export const refreshToken = async (refreshToken: string) => {
     throw new Error(error.response.data.message);
   }
 };
+
+export const logout = async () => {
+  try {
+    const response = await axiosInstance.post('/auth/logout');
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk } from '../../app/store';
-import { login, register, refreshToken } from '../../api/auth';
+import { login, register, refreshToken, logout } from '../../api/auth';
 import { AuthResponse, LoginData, RegisterData } from '../../interfaces';
 
 interface AuthState {
@@ -69,6 +69,16 @@ export const refreshUserToken = (refreshToken: string): AppThunk => async (dispa
     dispatch(setLoading());
     const response = await refreshToken(refreshToken);
     dispatch(setAuth(response));
+  } catch (error) {
+    dispatch(setError(error.message));
+  }
+};
+
+export const logoutUser = (): AppThunk => async (dispatch) => {
+  try {
+    dispatch(setLoading());
+    await logout();
+    dispatch(clearAuth());
   } catch (error) {
     dispatch(setError(error.message));
   }
