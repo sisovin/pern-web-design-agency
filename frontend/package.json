@@ -1,17 +1,12 @@
 {
-  "name": "pern-web-design-agency",
+  "name": "pern-web-design-agency-frontend",
   "version": "1.0.0",
-  "description": "A web design agency application built with the PERN stack",
-  "main": "frontend/src/main.tsx",
+  "description": "Frontend for the PERN web design agency application",
+  "main": "src/main.tsx",
   "scripts": {
-    "dev:frontend": "ts-node-dev frontend/src/main.tsx",
-    "dev:backend": "ts-node-dev backend/src/main.tsx",
-    "build:frontend": "tsc -p frontend/tsconfig.json",
-    "build:backend": "tsc -p backend/tsconfig.json",
-    "start:frontend": "node frontend/dist/main.js",
-    "start:backend": "node backend/dist/main.js",
-    "migrate": "prisma migrate dev",
-    "seed": "ts-node backend/src/prisma/seed.ts"
+    "dev": "ts-node-dev src/main.tsx",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
